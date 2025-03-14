@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/normalize.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet"> <!--Fuentes de Google-->
+    <link rel="stylesheet" href="CSS/style.css">
+    <title>BlogDeCafé</title>
+</head>
+<body>
+    <header class="header">
+
+        <div class="contenedor">
+            <div class="barra">
+                <a class="logo" href="index.html">
+                    <h1 class="logo__nombre no-margin centrar-texto">Blog <span class="logo__bold">DeCafé</span></h1>
+                </a>
+
+                <nav class="navegacion">
+                    <a class="navegacion__enlace" href="nosotros.html">Nosotros</a>
+                    <a class="navegacion__enlace" href="cursos.html">Cursos</a>
+                    <a class="navegacion__enlace" href="contacto.html">Contacto</a>
+                </nav>
+            </div>
+        </div>
+
+        <div class="header__texto">
+            <h2 class="no-margin">Blog de Café con concejos y cursos</h2>
+            <p class="no-margin">Aprende de los expertos con las mejores recetas</p>
+        </div>
+    </header>
+
+    <main class="contenedor">
+        <h3 class="centrar-texto">Contacto</h3>
+
+      <div class="contacto-bg"></div>
+      
+        <form class="formulario">
+            <div class="campo">
+                <label class="campo__label" for="nombre">Nombre</label>  <!--el for permite accesibilidad a personas con dificultades    -->
+                <input class="campo__field" type="text" name="nombre" id="nombre" placeholder="Tu Nombre">
+            </div>
+            <div class="campo">
+                <label class="campo__label" for="email">E-mail</label>  <!--el for permite accesibilidad a personas con dificultades    -->
+                <input class="campo__field" type="email" name="email" id="email" placeholder="Tu E-mail">
+            </div>
+            <div class="campo">
+                <label class="campo__label" for="mensaje">Mensaje</label>  <!--el for permite accesibilidad a personas con dificultades    -->
+                <textarea class="campo__field campo__field--textarea" name="mensaje" id="mensaje"></textarea>
+            </div>
+
+            <div class="campo">
+                <input type="submit" value="Enviar" class="boton boton--primario">
+            </div>
+
+        </form>
+
+
+    </main>
+
+    <footer class="footer">
+
+        <div class="contenedor">
+            <div class="barra">
+                <a class="logo" href="index.html">
+                    <h1 class="logo__nombre no-margin centrar-texto">Blog <span class="logo__bold">DeCafé</span></h1>
+                </a>
+
+                <nav class="navegacion">
+                    <a class="navegacion__enlace" href="nosotros.html">Nosotros</a>
+                    <a class="navegacion__enlace" href="cursos.html">Cursos</a>
+                    <a class="navegacion__enlace" href="contacto.html">Contacto</a>
+                </nav>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
