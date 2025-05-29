@@ -1,0 +1,357 @@
+:root {
+    --fuenteHeading: 'PT Sans', sans-serif;
+    --fuenteParrafos: 'Open Sans', sans-serif;
+
+    --primario: #784D3c;
+    --secundario: rgb(250, 228, 27);
+    --claro: #e1e1e1;
+    --blanco: #fff;
+    --negro: #000;
+}
+
+html {
+    box-sizing: border-box; /*Para que el borde y el padding no afecte a los elementos*/
+    font-size: 62.5%; /*para que 1 rem valga por 10 px*/
+}
+
+*, *:before, *:after {
+    box-sizing: inherit; /*hereda del elemento padre y de otros selectores*/
+}
+
+body {
+    font-family: var(--fuenteParrafos);
+    font-size: 1.6rem;
+    line-height: 2; /*interlineado*/
+}
+
+/*Globales*/
+
+.contenedor {
+    max-width: 120rem;
+    width: 90%; /*impide que el texto y las cajas se vayan hasta el límite en versión responsive*/
+    width: min(90%, 120rem); /* Mismo resultado de las dos lineas anteriores*/
+    margin: 0 auto;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1,h2,h3,h4 {
+    font-family: var(--fuenteHeading);
+    line-height: 1.2 /*no debe llevar medidas el interlineado como PX o REM*/;
+}
+
+h1{
+    font-size: 4.8rem;
+}
+
+h2 {
+    font-size: 4.3rem;
+}
+
+h3 {
+    font-size: 3.2rem;
+}
+
+h4 {
+    font-size: 2.8rem;
+}
+
+img{
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+
+/*Utilidades*/
+
+.no-margin {
+    margin: 0;
+}
+
+.no-padding {
+    padding: 0;
+}
+
+.centrar-texto {
+    text-align: center;
+}
+
+
+/*Header*/
+
+.webp .header { /*Valida el uso de carga de imágenes Webp para los diferentes navegadores*/
+    background-image: url(../img/banner.webp); 
+}
+
+.no-webp .header{ /* Valida la posibilidad de no cargar imágenes Webp en el navegador*/
+    background-image: url(../img/banner.jpg); 
+}
+
+.header {
+    background-image: url(../img/banner.jpg);   
+    height: 60rem;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center; /* centra la imagen en responsive*/
+}
+
+.header__texto {
+    text-align: center;
+    color: var(--blanco);
+    margin-top: 5rem;
+}
+
+@media (min-width: 768px) {
+    .header__texto {
+        margin-top: 15rem;
+    }
+}
+
+/*Logo */
+
+.barra {
+    padding-top: 4rem;
+}
+
+@media (min-width: 768px){
+    .barra {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+.logo {
+    color: var(--blanco);
+}
+
+.logo__nombre{
+    font-weight: 400;
+}
+
+.logo__bold {
+    font-weight: 700;
+}
+
+
+/*Navegacion*/
+
+@media (min-width: 768px) {
+    .navegacion {
+        display: flex;
+        gap: 3rem;
+    }
+}
+
+.navegacion__enlace{
+    display: block;
+    text-align: center;
+    font-size: 1.8rem;
+    color: var(--blanco);
+}
+
+.navegacion__enlace:hover {
+    color: var(--secundario);
+}
+
+/*Blog Principal*/
+
+@media (min-width: 768px) {
+    .contenido-principal {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        column-gap: 4rem;
+    }
+}
+
+
+/*Entrada*/ 
+
+.entrada {
+    border-bottom: 2px solid var(--claro);
+    margin-bottom: 2rem;
+}
+
+.entrada:last-of-type {
+    border: none;
+    margin-bottom: 0;
+}
+
+.boton {
+    display: block; /*en responsive tomará todo el ancho*/
+    font-family: var(--fuenteHeading);
+    color: var(--blanco);
+    text-align: center;
+    padding: 1rem 3rem;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 2rem; /*separaciòn del botón*/
+    border-radius: 1rem;
+    border: none;
+}
+
+.boton:hover{
+    color: var(--negro);
+    cursor: pointer;
+}
+
+@media (min-width: 768px){
+    .boton {
+        /*display: inline; /*Son inmunes al margin y al width, no se les puede aplicar margin*/
+        display: inline-block; /*respeta el margin y el width, pero no permitirá colocar otro elemento a su lado*/
+    }
+}
+
+.boton--primario { /*modificador del botón*/
+    background-color: var(--negro);
+}
+
+.boton--primario:hover {
+    background-color: var(--blanco);
+    border: 0.2px inset #000;
+}
+
+.boton--secundario { /*está heredando de la clase boton*/ /*BEM*/
+    background-color: var(--primario);
+}
+
+.cursos {
+    list-style: none;
+}
+
+/*cursos*/
+
+.widget-curso{
+    border-bottom: 1px solid var(--claro);
+    margin-bottom: 2rem;
+}
+
+.widget-curso:last-of-type{
+    border: none;
+    margin-bottom: 0;
+}
+
+.widget-curso__label {
+    font-family: var()var(--fuenteHeading);
+    font-weight: 700;
+}
+
+.widget-cursos__info {
+    font-weight: 400;
+}
+
+.widget-curso__label,
+.widget-cursos__info{
+    font-size: 2rem;
+}
+
+
+/*Footer*/
+.footer {
+    background: var(--negro);
+    padding-bottom: 3rem;
+    margin-top: 4rem;
+}
+
+
+/* Nosotros */
+
+@media (min-width: 768px) {
+    .sobre-nosotros {
+        padding: 0;
+        margin: 0;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 2rem;
+    }
+}
+
+.p-texto {
+    margin-top: 0;
+}
+
+/* Cursos */
+
+.curso {
+    padding: 3rem 0;
+    border-bottom: 1px solid var(--claro);
+}
+
+@media (min-width: 768px) {
+    .curso {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        column-gap: 2rem;
+    }
+}
+
+.curso:last-of-type {
+    border: none;
+}
+
+.cursos__label {
+    font-family: var(--fuenteHeading);
+    font-weight: 700;
+}
+
+.cursos__info {
+    font-weight: 400;
+}
+
+.cursos__label,
+.cursos__info{
+    font-size: 2rem;
+}
+
+
+
+/* Contacto */
+
+.contacto-bg {
+    background-image: url(../img/contacto.jpg);
+    height: 40rem;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/* estilos del formulario */
+
+.formulario {
+    background-color: var(--blanco);
+    margin: -5rem auto 0 auto;
+    width: 95%;
+    padding: 2rem;
+}
+
+.campo {
+    display: flex; /*para hacer uso del shorthand*/
+    margin-bottom: 2rem;
+}
+
+.campo__label {
+    flex: 0 0 9rem; /*factor de crecimiento y decremento*/
+    text-align: right; /*alinear a la derecha*/
+    padding-right: 2rem; /*gap entre nombre y campo del formulario*/
+
+}
+
+.campo__field {
+    flex: 1;
+    border: 1px solid var(--claro);
+   /* width: 100%; /*solución responsive 1*/
+   overflow: hidden; /* Solución responsive 2*/
+}
+
+/*solución responsive 3 - padding sobre el formulario de 2rem*/
+/*@media (min-width: 768px){
+    .formulario {
+        padding: 5rem;
+    }
+}*/
+
+.campo__field--textarea {
+    height: 20rem;
+}
