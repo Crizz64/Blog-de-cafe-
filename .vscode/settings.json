@@ -1,3 +1,4 @@
 {
-    "liveServer.settings.CustomBrowser": "firefox:PrivateMode"
+    "liveServer.settings.CustomBrowser": "firefox:PrivateMode",
+    "liveServer.settings.port": 5501
 }
