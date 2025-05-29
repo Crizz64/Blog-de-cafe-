@@ -1,4 +1,8 @@
 {
-    "liveServer.settings.CustomBrowser": "firefox:PrivateMode",
-    "liveServer.settings.port": 5501
+  "liveServer.settings.CustomBrowser": "firefox:PrivateMode",
+  "liveServer.settings.port": 5501,
+  "liveServer.settings.mimeTypes": {
+    ".js": "application/javascript"
+  }
 }
+
