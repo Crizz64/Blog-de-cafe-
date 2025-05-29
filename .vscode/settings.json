@@ -1,7 +1,8 @@
 {
-  "liveServer.settings.customBrowser": "firefox:PrivateMode",
-  "liveServer.settings.port": 3000,
-  // The MIME type for ".js" files is set to "application/javascript" to ensure compatibility with certain browsers or server configurations.
-  // This setting is not recognized by Live Server and can be managed directly in server configurations if needed.
+  "liveServer.settings.CustomBrowser": "firefox:PrivateMode",
+  "liveServer.settings.port": 5501,
+  "liveServer.settings.mimeTypes": {
+    ".js": "application/javascript"
+  }
 }
 
