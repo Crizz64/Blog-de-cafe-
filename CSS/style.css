@@ -355,3 +355,12 @@ img{
 .campo__field--textarea {
     height: 20rem;
 }
+
+wa-widget {
+  --wa-color: #008785;
+  --wa-text-color: white;
+  --wa-font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --wa-panel-width: 360px;
+  --wa-bubble-size: 60px;
+  --wa-border-radius: 16px;
+}
