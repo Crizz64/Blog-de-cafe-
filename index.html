@@ -162,19 +162,22 @@
     <script src="js/modernizr.js"></script> <!--Valida la posibilidad de la carga de imágenes Webp.-->
 
   <!-- widget de pruebas LC -->
- <script async src="https://cdn.ejemplo.com/wa-widget@1.0.0/widget.js"></script>
+<!-- Paso 1: incluir el script desde CDN -->
+<script async src="https://cdn.liveconnect.chat/whatsapp-widget/widget.js"></script>
+
+<!-- Paso 2: colocar el elemento personalizado donde quieras -->
 <wa-widget
-  phone="573128965648"
-  brand="Crizz"
+  phone="519900012345"
+  brand="LiveConnect"
   color="#008785"
-  bubble-text="Chat with yo"
-  welcome="Hi there! How can I help you?"
-  preset="Hello, I have a question about {page_title} ({page_link})"
+  bubble-text="Chatea con nosotros"
+  welcome="¿Tienes alguna pregunta? Estamos aquí para ayudarte."
+  preset="Hola, tengo una consulta sobre {page_title} ({page_link})"
   position="bottom-right"
   open="false"
+  logo="https://dominio.com/logo.svg"
   lang="es"
-  width="300px"
-  height="400px"
+  delay="3"
 ></wa-widget>
 <script src="widget.js"></script>
 
