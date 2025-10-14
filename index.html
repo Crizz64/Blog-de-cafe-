@@ -27,137 +27,132 @@
 </head>
 <body>
     <header class="header">
+    <div class="contenedor">
+        <div class="barra">
+            <a class="logo" href="index.html">
+                <h1 class="logo__nombre no-margin centrar-texto">Blog <span class="logo__bold">De Café</span></h1>
+            </a>
 
-        <div class="contenedor">
-            <div class="barra">
-                <a class="logo" href="index.html">
-                    <h1 class="logo__nombre no-margin centrar-texto">Blog <span class="logo__bold">DeCafé</span></h1>
-                </a>
-
-                <nav class="navegacion">
-                    <a class="navegacion__enlace" href="nosotros.html">Nosotros</a>
-                    <a class="navegacion__enlace" href="cursos.html">Cursos</a>
-                    <a class="navegacion__enlace" href="contacto.html">Contacto</a>
-                </nav>
-            </div>
+            <nav class="navegacion">
+                <a class="navegacion__enlace" href="nosotros.html">Nosotros</a>
+                <a class="navegacion__enlace" href="cursos.html">Cursos</a>
+                <a class="navegacion__enlace" href="contacto.html">Contacto</a>
+            </nav>
         </div>
-
-        <div class="header__texto">
-            <h2 class="no-margin">Blog de Café con concejos y cursos</h2>
-            <p class="no-margin">Aprende de los expertos con las mejores recetas</p>
-        </div>
-    </header>
-
-    <div class="contenedor contenido-principal">
-        <main class="blog">
-            <h3 class="">Nuestro Blog</h3>
-
-            <article class="entrada"> <!--Artículo 1-->
-                <div class="entrada__imagen">
-                    <picture> <!--sirve como img pero soporta diferentes fomratos de imagen para diferentes navegadores-->
-                        <source loading="lazy" srcset="img/blog1.webp" type="img/webp"> <!--min type de una imagen-->
-                        <img loading="lazy" src="img/blog1.jpg" alt="imagen blog"> <!-- En caso en que el webp no lo soporte el navegador usara el img-->
-                    </picture>
-                    
-                </div>
-
-                <div class="entrada__contenido">
-                    <h4 class="no-margin">Tipos de Grano de Café</h4>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed deleniti quod nemo, dolores necessitatibus 
-                        dolore. Maiores, id officiis quod modi at magni cumque autem minus in sed similique itaque. 
-                    </p>
-                    <a href="entrada.html" class="boton boton--primario">Leer entrada</a>
-                </div>
-            </article> <!--Artículo 1 FIN-->
-
-            <article class="entrada"> <!--Artículo 2-->
-                <div class="entrada__imagen">
-                    <picture>
-                        <source loading="lazy" srcset="img/blog2.webp" type="img/webp"> 
-                        <img loading="lazy" src="img/blog2.jpg" alt="imagen blog"> 
-                    </picture>
-                </div>
-
-                <div class="entrada__contenido">
-                    <h4 class="no-margin">3 Deliciosas recetas de café</h4>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed deleniti quod nemo, dolores necessitatibus 
-                        dolore. Maiores, id officiis quod modi at magni cumque autem minus in sed similique itaque. 
-                    </p>
-                    <a href="entrada.html" class="boton boton--primario">Leer entrada</a>
-                </div>
-            </article> <!--Artículo 2 FIN-->
-
-            <article class="entrada"> <!--Artículo 3-->
-                <div class="entrada__imagen">
-                    <picture>
-                        <source loading="lazy" srcset="img/blog3.webp" type="img/webp"> 
-                        <img loading="lazy" src="img/blog3.jpg" alt="imagen blog"> 
-                    </picture>
-                </div>
-
-                <div class="entrada__contenido">
-                    <h4 class="no-margin">Beneficios del café</h4>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed deleniti quod nemo, dolores necessitatibus 
-                        dolore. Maiores, id officiis quod modi at magni cumque autem minus in sed similique itaque. 
-                    </p>
-                    <a href="entrada.html" class="boton boton--primario">Leer entrada</a>
-                </div>
-            </article> <!--Artículo 3 FIN-->
-            
-        </main>
-        <aside class="sidebar">
-            <h3>Nuestros cursos y talleres</h3>
-            <ul class="cursos no-padding"> <!--Lista NO ordenada-->
-                <li class="widget-curso"> <!--Dupal y wordpress usan estás clases y sintaxis semánticas en el HTML-->
-                    <h4 class="no-margin">Técnicas de extracción de café</h4>
-                    <p class="widget-cursos__label">Precio:
-                        <span class="widget-cursos__info">Gratis</span>
-                    </p>
-                    <p class="widget-cursos__label">Cupo:
-                        <span class="widget-cursos__info">30</span>
-                    </p>
-                    <a href="entrada.html" class="boton boton--secundario">ir al curso</a> 
-                </li>
-                <li class="widget-curso"> <!--CURSO 2-->
-                    <h4 class="no-margin">4 Recetas de Café</h4>
-                    <p class="widget-cursos__label">Precio:
-                        <span class="widget-cursos__info">Gratis</span>
-                    </p>
-                    <p class="widget-cursos__label">Cupo:
-                        <span class="widget-cursos__info">30</span>
-                    </p>
-                    <a href="entrada.html" class="boton boton--secundario">Ir al curso</a> 
-                </li>
-                <li class="widget-curso"> <!--CURSO 2-->
-                    <h4 class="no-margin">Pacticas de café</h4>
-                    <p class="widget-cursos__label">Precio:
-                        <span class="widget-cursos__info">Gratis</span>
-                    </p>
-                    <p class="widget-cursos__label">Cupo:
-                        <span class="widget-cursos__info">30</span>
-                    </p>
-                    <a href="entrada.html" class="boton boton--secundario">Ir al curso</a> 
-                </li>                
-            </ul>
-        </aside>
     </div>
- 
-    <footer class="footer">
 
-        <div class="contenedor">
-            <div class="barra">
-                <a class="logo" href="index.html">
-                    <h1 class="logo__nombre no-margin centrar-texto">Blog <span class="logo__bold">DeCafé</span></h1>
-                </a>
+    <div class="header__texto">
+        <h2 class="no-margin">Descubre los secretos del café con nosotros</h2>
+        <p class="no-margin">Aprende de los expertos con las mejores recetas y técnicas</p>
+    </div>
+</header>
 
-                <nav class="navegacion">
-                    <a class="navegacion__enlace" href="nosotros.html">Nosotros</a>
-                    <a class="navegacion__enlace" href="cursos.html">Cursos</a>
-                    <a class="navegacion__enlace" href="contacto.html">Contacto</a>
-                </nav>
+<div class="contenedor contenido-principal">
+    <main class="blog">
+        <h3 class="">Nuestro Blog</h3>
+
+        <article class="entrada"> 
+            <div class="entrada__imagen">
+                <picture> 
+                    <source loading="lazy" srcset="img/blog1.webp" type="image/webp"> 
+                    <img loading="lazy" src="img/blog1.jpg" alt="imagen de café"> 
+                </picture>
+                
             </div>
+
+            <div class="entrada__contenido">
+                <h4 class="no-margin">Orígenes del café</h4>
+                <p>El café es una bebida que se originó en Etiopía, donde se cree que las tribus oromo la descubrieron por primera vez. La leyenda dice que un pastor llamado Kaldi notó que sus cabras se volvían más enérgicas después de comer las frutas del cafeto.</p>
+                <a href="entrada.html" class="boton boton--primario">Leer más sobre la historia del café</a>
+            </div>
+        </article> 
+
+        <article class="entrada"> 
+            <div class="entrada__imagen">
+                <picture>
+                    <source loading="lazy" srcset="img/blog2.webp" type="image/webp"> 
+                    <img loading="lazy" src="img/blog2.jpg" alt="imagen de café"> 
+                </picture>
+            </div>
+
+            <div class="entrada__contenido">
+                <h4 class="no-margin">Beneficios del café para la salud</h4>
+                <p>El café es rico en antioxidantes, que ayudan a proteger el cuerpo contra los radicales libres y pueden reducir el riesgo de enfermedades crónicas como la diabetes y la enfermedad de Parkinson.</p>
+                <a href="entrada.html" class="boton boton--primario">Descubre más beneficios del café para la salud</a>
+            </div>
+        </article> 
+
+        <article class="entrada"> 
+            <div class="entrada__imagen">
+                <picture>
+                    <source loading="lazy" srcset="img/blog3.webp" type="image/webp"> 
+                    <img loading="lazy" src="img/blog3.jpg" alt="imagen de café"> 
+                </picture>
+            </div>
+
+            <div class="entrada__contenido">
+                <h4 class="no-margin">Recetas de café para principiantes</h4>
+                <p>Si eres nuevo en el mundo del café, no te preocupes. Aquí te presentamos algunas recetas fáciles para empezar: café con leche, café solo y capuchino.</p>
+                <a href="entrada.html" class="boton boton--primario">Ver más recetas de café</a>
+            </div>
+        </article> 
+        
+    </main>
+    <aside class="sidebar">
+        <h3>Nuestros cursos y talleres</h3>
+        <ul class="cursos no-padding"> 
+            <li class="widget-curso"> 
+                <h4 class="no-margin">Técnicas de extracción de café</h4>
+                <p class="widget-cursos__label">Precio:
+                    <span class="widget-cursos__info">Gratis</span>
+                </p>
+                <p class="widget-cursos__label">Cupo:
+                    <span class="widget-cursos__info">30</span>
+                </p>
+                <a href="entrada.html" class="boton boton--secundario">Ir al curso</a> 
+            </li>
+            <li class="widget-curso"> 
+                <h4 class="no-margin">Recetas de café avanzadas</h4>
+                <p class="widget-cursos__label">Precio:
+                    <span class="widget-cursos__info">$20</span>
+                </p>
+                <p class="widget-cursos__label">Cupo:
+                    <span class="widget-cursos__info">20</span>
+                </p>
+                <a href="entrada.html" class="boton boton--secundario">Ir al curso</a> 
+            </li>
+            <li class="widget-curso"> 
+                <h4 class="no-margin">Cata de café</h4>
+                <p class="widget-cursos__label">Precio:
+                    <span class="widget-cursos__info">$30</span>
+                </p>
+                <p class="widget-cursos__label">Cupo:
+                    <span class="widget-cursos__info">15</span>
+                </p>
+                <a href="entrada.html" class="boton boton--secundario">Ir al curso</a> 
+            </li>                
+        </ul>
+    </aside>
+</div>
+
+<footer class="footer">
+
+    <div class="contenedor">
+        <div class="barra">
+            <a class="logo" href="index.html">
+                <h1 class="logo__nombre no-margin centrar-texto">Blog <span class="logo__bold">De Café</span></h1>
+            </a>
+
+            <nav class="navegacion">
+                <a class="navegacion__enlace" href="nosotros.html">Nosotros</a>
+                <a class="navegacion__enlace" href="cursos.html">Cursos</a>
+                <a class="navegacion__enlace" href="contacto.html">Contacto</a>
+            </nav>
         </div>
-    </footer>
+    </div>
+</footer>
+
+<script src="js/modernizr.js"></script> 
 
     <script src="js/modernizr.js"></script> <!--Valida la posibilidad de la carga de imágenes Webp.-->
 
