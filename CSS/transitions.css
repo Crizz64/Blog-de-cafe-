@@ -1,0 +1,206 @@
+/* TRANSICIONES Y EFECTOS VISUALES */
+
+/* Transiciones globales para links */
+a {
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+/* Navegación - Hover mejorado */
+.navegacion__enlace {
+    position: relative;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.navegacion__enlace:hover {
+    border-bottom-color: var(--secundario);
+    color: var(--secundario);
+}
+
+/* Botones - Transiciones y efectos */
+.boton {
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    overflow: hidden;
+}
+
+.boton:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.boton:active {
+    transform: translateY(-1px);
+}
+
+/* Botón primario - Efecto hover mejorado */
+.boton--primario {
+    background-color: var(--negro);
+    transition: all 0.3s ease;
+}
+
+.boton--primario:hover {
+    background-color: var(--primario);
+    box-shadow: 0 8px 16px rgba(120, 77, 60, 0.3);
+}
+
+/* Botón secundario */
+.boton--secundario {
+    background-color: var(--primario);
+}
+
+.boton--secundario:hover {
+    background-color: var(--negro);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Entradas/Artículos - Efecto hover */
+.entrada {
+    transition: all 0.3s ease;
+    padding: 1rem 0;
+}
+
+.entrada:hover {
+    transform: translateY(-2px);
+}
+
+/* Imágenes - Zoom suave */
+img {
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.entrada:hover img,
+.curso__imagen:hover img {
+    transform: scale(1.02);
+    filter: brightness(1.05);
+}
+
+/* Campos de formulario - Focus y transiciones */
+.campo__field {
+    transition: all 0.3s ease;
+}
+
+.campo__field:hover {
+    border-color: var(--primario);
+}
+
+.campo__field:focus {
+    outline: none;
+    border-color: var(--primario);
+    box-shadow: 0 0 8px rgba(120, 77, 60, 0.3);
+    transform: scale(1.01);
+}
+
+/* Validación visual - Colores con transición */
+.campo__field:invalid:not(:placeholder-shown) {
+    border-color: #e74c3c;
+    background: linear-gradient(to right, rgba(231, 76, 60, 0.02) 0%, transparent 100%);
+}
+
+.campo__field:valid:not(:placeholder-shown) {
+    border-color: #27ae60;
+    background: linear-gradient(to right, rgba(39, 174, 96, 0.02) 0%, transparent 100%);
+}
+
+/* Logo - Hover subtil */
+.logo {
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.02);
+}
+
+/* Sidebar widgets */
+.widget-curso {
+    transition: all 0.3s ease;
+    padding: 1rem 0;
+}
+
+.widget-curso:hover {
+    transform: translateX(4px);
+}
+
+/* Cursos - Efecto hover */
+.curso {
+    transition: all 0.3s ease;
+}
+
+.curso:hover {
+    padding-left: 1rem;
+}
+
+.curso__imagen {
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.curso__imagen img {
+    transition: transform 0.3s ease;
+}
+
+.curso:hover .curso__imagen img {
+    transform: scale(1.05);
+}
+
+/* Footer links */
+.footer__info a {
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.footer__info a:hover {
+    color: var(--claro) !important;
+}
+
+/* Animación entrada suave */
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.entrada, .curso, .widget-curso {
+    animation: slideInUp 0.6s ease-out;
+}
+
+/* Aplicar animación con delay */
+.entrada:nth-child(1) { animation-delay: 0.1s; }
+.entrada:nth-child(2) { animation-delay: 0.2s; }
+.entrada:nth-child(3) { animation-delay: 0.3s; }
+
+/* Mejorar select y textarea */
+select, textarea {
+    font-family: inherit;
+    transition: all 0.3s ease;
+}
+
+select:focus, textarea:focus {
+    outline: none;
+}
+
+/* Efecto pulso suave para elementos importantes */
+@keyframes softPulse {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(120, 77, 60, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 0 8px rgba(120, 77, 60, 0);
+    }
+}
+
+.boton--primario {
+    animation: softPulse 2s infinite;
+    animation-delay: 3s;
+}
+
+/* Smooth scroll behavior */
+html {
+    scroll-behavior: smooth;
+}

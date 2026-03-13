@@ -1,14 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contáctanos: envía tus preguntas, sugerencias o consultas sobre nuestros cursos y contenido de café.">
+    <meta name="keywords" content="contacto, consultas, café, formulario">
+    <meta name="theme-color" content="#784D3c">
+    
+    <!-- Open Graph para redes sociales -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Contacto - Blog de Café">
+    <meta property="og:description" content="Ponte en contacto con nosotros. Estamos aquí para ayudarte.">
+    <link rel="canonical" href="https://tudominio.com/contacto.html">
+    
     <link rel="stylesheet" href="CSS/normalize.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet"> <!--Fuentes de Google-->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="CSS/style.css">
-    <title>BlogDeCafé</title>
+    <link rel="stylesheet" href="CSS/style-responsive.css">
+    <link rel="stylesheet" href="CSS/transitions.css">
+    <title>Contacto | Blog de Café - Envía tu Consulta</title>
 </head>
 <body>
     <header class="header">
@@ -38,38 +50,45 @@
 
       <div class="contacto-bg"></div>
       
-        <form class="formulario">
+        <form class="formulario" method="POST" action="#" novalidate>
             <div class="campo">
-                <label class="campo__label" for="nombre">Nombre</label>  <!--el for permite accesibilidad a personas con dificultades    -->
-                <input class="campo__field" type="text" name="nombre" id="nombre" placeholder="Tu Nombre">
+                <label class="campo__label" for="nombre">Nombre</label>
+                <input class="campo__field" type="text" name="nombre" id="nombre" placeholder="Tu Nombre" required aria-required="true">
             </div>
             <div class="campo">
-                <label class="campo__label" for="email">E-mail</label>  <!--el for permite accesibilidad a personas con dificultades    -->
-                <input class="campo__field" type="email" name="email" id="email" placeholder="Tu E-mail">
+                <label class="campo__label" for="email">E-mail</label>
+                <input class="campo__field" type="email" name="email" id="email" placeholder="tu@email.com" required aria-required="true">
             </div>
-             <div class="campo">
-                <label class="campo__label" for="Número">Teléfono</label>  <!--el for permite accesibilidad a personas con dificultades    -->
-                <textarea class="Numero" type="phone" name="mensaje" id="mensaje"></textarea>
+            <div class="campo">
+                <label class="campo__label" for="telefono">Teléfono</label>
+                <input class="campo__field" type="tel" name="telefono" id="telefono" placeholder="+57 123 456 7890" aria-label="Número de teléfono">
+            </div>
+            <div class="campo">
+                <label class="campo__label" for="mensaje">Mensaje</label>
+                <textarea class="campo__field campo__field--textarea" name="mensaje" id="mensaje" placeholder="Tu mensaje aquí..." required aria-required="true"></textarea>
             </div>
             
             <div class="campo">
-                <label class="campo__label" for="mensaje">Mensaje</label>  <!--el for permite accesibilidad a personas con dificultades    -->
-                <textarea class="campo__field campo__field--textarea" name="mensaje" id="mensaje"></textarea>
+                <input type="submit" value="Enviar Mensaje" class="boton boton--primario">
             </div>
-            
-           
-
-            <div class="campo">
-                <input type="submit" value="Enviar" class="boton boton--primario">
-            </div>
-
         </form>
-
 
     </main>
 
-    <footer class="footer">
+    <!-- Firebase Scripts (CDN Seguro) -->
+    <script defer src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js"></script>
+    
+    <!-- Scripts de Aplicación (Versión Segura) -->
+    <script defer src="js/firebase-config-secure.js"></script>
+    <script defer src="js/form-handler-secure.js"></script>
+    
+    <style>
+        @keyframes slideInRight { from { opacity: 0; transform: translateX(100px); } to { opacity: 1; transform: translateX(0); } }
+        @keyframes slideOutRight { from { opacity: 1; transform: translateX(0); } to { opacity: 0; transform: translateX(100px); } }
+    </style>
 
+    <footer class="footer">
         <div class="contenedor">
             <div class="barra">
                 <a class="logo" href="index.html">
@@ -82,10 +101,18 @@
                     <a class="navegacion__enlace" href="contacto.html">Contacto</a>
                 </nav>
             </div>
+            <div class="footer__info" style="text-align: center; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #555; font-size: 1.4rem;">
+                <p style="margin: 0.5rem 0;">© 2026 Blog de Café. Todos los derechos reservados.</p>
+                <p style="margin: 1rem 0;">
+                    <a href="" style="color: var(--secundario); margin: 0 1rem;">Privacidad</a> | 
+                    <a href="" style="color: var(--secundario); margin: 0 1rem;">Términos</a> | 
+                    <a href="contacto.html" style="color: var(--secundario); margin: 0 1rem;">Contacto</a>
+                </p>
+            </div>
         </div>
     </footer>
         
-<script async src="https://cdn.ejemplo.com/wa-widget@1.0.0/widget.js"></script>
+<script src="widget.js"></script>
 
 <wa-widget
   phone="573128965648"

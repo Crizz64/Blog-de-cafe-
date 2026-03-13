@@ -1,14 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Blog de Café: aprende técnicas de extracción, recetas especia​lizadas y los secretos del café de la mano de expertos. Cursos gratuitos y contenido exclusivo.">
+    <meta name="keywords" content="café, blog, recetas, cursos, técnicas, barista">
+    <meta name="theme-color" content="#784D3c">
+    <meta name="author" content="Blog de Café">
+    
+    <!-- Open Graph para redes sociales -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Blog de Café - Aprende con los Expertos">
+    <meta property="og:description" content="Descubre técnicas, recetas y conocimientos del café de calidad. Cursos gratuitos disponibles.">
+    <meta property="og:image" content="https://tudominio.com/img/banner.webp">
+    <meta property="og:url" content="https://tudominio.com">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://tudominio.com/">
     
     <link rel="preconnect" href="https://fonts.gstatic.com">
 
     <!-- Prefetch-->
-    <link rel="Prefetch--" href="cursos.html" as="document"> <!-- debe ser usado en la página más visitada o con mayor carga de elementos-->
+    <link rel="prefetch" href="cursos.html" as="document">
 
 
 
@@ -18,12 +31,15 @@
 
     <link rel="Preload" href="CSS/style.css" as="style">
     <link rel="stylesheet" href="CSS/style.css">
+    
+    <link rel="stylesheet" href="CSS/style-responsive.css">
+    <link rel="stylesheet" href="CSS/transitions.css">
 
     <link rel="Preload" href="https://fonts.googleapis.com/css2?family=Open+Sans&family=PT+Sans:wght@400;700&display=swap" crossorigin="crossorigin" as="fonts">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet"> <!--Fuentes de Google-->
 
 
-    <title>BlogDeCafé</title>
+    <title>Blog de Café | Aprende Técnicas, Recetas y Secretos del Café</title>
 </head>
 <body>
     <header class="header">
@@ -55,7 +71,7 @@
             <div class="entrada__imagen">
                 <picture> 
                     <source loading="lazy" srcset="img/blog1.webp" type="image/webp"> 
-                    <img loading="lazy" src="img/blog1.jpg" alt="imagen de café"> 
+                    <img loading="lazy" src="img/blog1.jpg" alt="Granos de café etiope de alta calidad - Orígenes del café"> 
                 </picture>
                 
             </div>
@@ -71,7 +87,7 @@
             <div class="entrada__imagen">
                 <picture>
                     <source loading="lazy" srcset="img/blog2.webp" type="image/webp"> 
-                    <img loading="lazy" src="img/blog2.jpg" alt="imagen de café"> 
+                    <img loading="lazy" src="img/blog2.jpg" alt="Taza de café con beneficios para la salud explicados"> 
                 </picture>
             </div>
 
@@ -86,7 +102,7 @@
             <div class="entrada__imagen">
                 <picture>
                     <source loading="lazy" srcset="img/blog3.webp" type="image/webp"> 
-                    <img loading="lazy" src="img/blog3.jpg" alt="imagen de café"> 
+                    <img loading="lazy" src="img/blog3.jpg" alt="Recetas fáciles de café para principiantes: café con leche"> 
                 </picture>
             </div>
 
@@ -136,7 +152,6 @@
 </div>
 
 <footer class="footer">
-
     <div class="contenedor">
         <div class="barra">
             <a class="logo" href="index.html">
@@ -149,6 +164,14 @@
                 <a class="navegacion__enlace" href="contacto.html">Contacto</a>
             </nav>
         </div>
+        <div class="footer__info" style="text-align: center; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #555; font-size: 1.4rem;">
+            <p style="margin: 0.5rem 0;">© 2026 Blog de Café. Todos los derechos reservados.</p>
+            <p style="margin: 1rem 0;">
+                <a href="" style="color: var(--secundario); margin: 0 1rem;">Privacidad</a> | 
+                <a href="" style="color: var(--secundario); margin: 0 1rem;">Términos</a> | 
+                <a href="contacto.html" style="color: var(--secundario); margin: 0 1rem;">Contacto</a>
+            </p>
+        </div>
     </div>
 </footer>
 
@@ -158,7 +181,7 @@
 
   <!-- widget de pruebas LC -->
 <!-- Incluir el script del widget de WhatsApp -->
-<script async src="https://cdn.ejemplo.com/wa-widget@1.0.0/widget.js"></script>
+<script src="widget.js"></script>
 
 <wa-widget
   phone="573128965648"

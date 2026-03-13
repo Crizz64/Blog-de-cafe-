@@ -315,6 +315,13 @@ img{
     height: 40rem;
     background-size: cover;
     background-repeat: no-repeat;
+    background-position: center center;
+}
+
+@media (max-width: 480px) {
+    .contacto-bg {
+        height: 20rem;
+    }
 }
 
 /* estilos del formulario */
@@ -356,6 +363,27 @@ img{
     height: 20rem;
 }
 
+/* Validación de formulario */
+.campo__field:invalid {
+    border-color: #e74c3c;
+    background-color: rgba(231, 76, 60, 0.05);
+}
+
+.campo__field:valid {
+    border-color: #27ae60;
+}
+
+.campo__field:focus {
+    outline: none;
+    border-color: var(--primario);
+    box-shadow: 0 0 5px rgba(120, 77, 60, 0.3);
+}
+
+.formulario input[type="submit"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
 wa-widget {
   --wa-color: #870053;
   --wa-text-color: white;
@@ -363,4 +391,13 @@ wa-widget {
   --wa-panel-width: 360px;
   --wa-bubble-size: 60px;
   --wa-border-radius: 16px;
+}
+
+/* Transiciones y animaciones */
+.boton {
+  transition: all 0.3s ease;
+}
+
+a:not(.navegacion__enlace):not(.logo) {
+  transition: color 0.2s ease;
 }
