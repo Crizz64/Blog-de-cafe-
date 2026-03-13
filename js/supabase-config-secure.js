@@ -5,8 +5,8 @@
 // Integración segura con PostgreSQL/Supabase
 
 // REEMPLAZA ESTOS VALORES CON TUS CREDENCIALES
-const SUPABASE_URL = "https://xxxxx.supabase.co";
-const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...";
+const SUPABASE_URL = "https://wyuqnxjwgizpqwybilmu.supabase.co";
+const SUPABASE_ANON_KEY = "sb_publishable_asx3rChDRxfjA93M8cLuGw_aQHB3IMC";
 
 // ============================================
 // VALIDACIÓN DE CONFIGURACIÓN
