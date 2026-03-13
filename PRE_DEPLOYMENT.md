@@ -20,34 +20,40 @@ Antes de publicar a Netlify/Vercel, completar esta checklist:
 
 ---
 
-## 2. 🔐 FIRESTORE RULES
+## 2. 🔐 SUPABASE CONFIGURATION (NUEVO)
 
-1. Ir a [Firebase Console](https://console.firebase.google.com)
-2. Seleccionar proyecto "blog-de-cafe"
-3. Firestore Database → **Rules**
-4. Copiar estas reglas:
+**Opción A: Supabase (RECOMENDADO)** ⭐
 
-```javascript
-rules_version = '2';
-service cloud.firestore {
-  match /databases/{database}/documents {
-    match /contactos/{document=**} {
-      allow read: if request.auth != null;
-      allow write: if request.resource.data.nombre is string &&
-                      request.resource.data.nombre.size() >= 3 &&
-                      request.resource.data.email is string &&
-                      request.resource.data.mensaje is string &&
-                      request.resource.data.mensaje.size() >= 10;
-    }
-  }
-}
+1. Ve a https://supabase.com/ → **Sign Up**
+2. Crea proyecto "blog-de-cafe"
+3. Database Password: cópia (la necesitarás)
+4. Espera 2-3 minutos a que se cree
+5. Settings → **API** → Copia:
+   - `Project URL`
+   - `anon key` (la variable que start con `eyJ`)
+6. Abre `js/supabase-config-secure.js`:
+   - Reemplaza `const SUPABASE_URL = "https://xxxxx.supabase.co"`
+   - Reemplaza `const SUPABASE_ANON_KEY = "eyJ..."`
+7. En Supabase Dashboard, ve a **SQL Editor**
+8. Click **"New Query"**
+9. Pega este SQL:
+```sql
+CREATE TABLE contactos (
+  id BIGINT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+  nombre VARCHAR(255) NOT NULL,
+  email VARCHAR(255) NOT NULL,
+  telefono VARCHAR(20),
+  mensaje TEXT NOT NULL,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);
 ```
-
-5. Click en **Publish** (botón azul)
+10. Click **"Run"** (botón azul)
 
 **Verificar:**
-- [ ] Firestore rules publicadas
-- [ ] Panel de Rules sin errores
+- [ ] Supabase proyecto creado
+- [ ] Tabla "contactos" creada
+- [ ] Credenciales en `js/supabase-config-secure.js`
+- [ ] Sin errores en Console (F12)
 
 ---
 
