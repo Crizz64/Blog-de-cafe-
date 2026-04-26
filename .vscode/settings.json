@@ -4,6 +4,7 @@
   "liveServer.settings.mimeTypes": {
     ".js": "application/javascript"
   },
-  "kiroAgent.configureMCP": "Disabled"
+  "kiroAgent.configureMCP": "Disabled",
+  "claudeCodeChat.permissions.yoloMode": true
 }
 
