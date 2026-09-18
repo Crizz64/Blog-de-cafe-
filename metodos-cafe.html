@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Descubre los diferentes métodos de filtrado de café: Pour Over, French Press, AeroPress, Moka Pot y más. Guía completa de cada técnica con videos.">
+    <meta name="keywords" content="métodos café, filtrado, pour over, french press, aeropress, técnicas">
+    <meta name="theme-color" content="#784D3c">
+    
+    <!-- Open Graph para redes sociales -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Métodos de Filtrado de Café - Blog de Café">
+    <meta property="og:description" content="Explora todos los métodos de filtrado de café disponibles. Aprende técnicas y características de cada uno con videos tutoriales.">
+    <link rel="canonical" href="https://tudominio.com/metodos-cafe.html">
+    
+    <link rel="stylesheet" href="CSS/normalize.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/style-responsive.css">
+    <link rel="stylesheet" href="CSS/transitions.css">
+    <title>Métodos de Filtrado | Blog de Café - Técnicas y Guías</title>
+
+    <style>
+        /* Galería de métodos */
+        .galeria-metodos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .metodo-tarjeta {
+            background-color: var(--blanco);
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 2px solid var(--claro);
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .metodo-tarjeta:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+            border-color: var(--primario);
+        }
+
+        .metodo-tarjeta__icono {
+            width: 100%;
+            height: 220px;
+            background: #1a1a1a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 7rem;
+            color: var(--blanco);
+        }
+
+        .metodo-tarjeta__contenido {
+            padding: 2rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .metodo-tarjeta__titulo {
+            font-family: var(--fuenteHeading);
+            font-size: 2.2rem;
+            color: var(--primario);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .metodo-tarjeta__descripcion {
+            font-size: 1.4rem;
+            color: var(--negro);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+
+        .metodo-tarjeta__detalles {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--claro);
+        }
+
+        .metodo-detalle {
+            font-size: 1.2rem;
+        }
+
+        .metodo-detalle__label {
+            font-weight: 700;
+            color: var(--primario);
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        .metodo-detalle__valor {
+            color: var(--negro);
+        }
+
+        .metodo-tarjeta__caracteristicas {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .caracteristica-badge {
+            background-color: rgba(120, 77, 60, 0.1);
+            color: var(--primario);
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        .metodo-tarjeta__boton {
+            background-color: var(--primario);
+            color: var(--blanco);
+            border: none;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            font-size: 1.4rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-family: var(--fuenteHeading);
+            text-transform: uppercase;
+            margin-top: auto;
+        }
+
+        .metodo-tarjeta__boton:hover {
+            background-color: rgba(120, 77, 60, 0.8);
+        }
+
+        .metodos-intro {
+            background-color: rgba(120, 77, 60, 0.05);
+            padding: 2rem;
+            border-radius: 1rem;
+            margin-bottom: 3rem;
+            border-left: 4px solid var(--primario);
+        }
+
+        .metodos-intro h2 {
+            margin-top: 0;
+            color: var(--primario);
+        }
+
+        .metodos-intro p {
+            color: var(--negro);
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-contenido {
+            background-color: var(--blanco);
+            padding: 2rem;
+            border-radius: 1rem;
+            max-width: 900px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            animation: slideUp 0.3s ease;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid var(--claro);
+            padding-bottom: 1rem;
+        }
+
+        .modal-header h2 {
+            color: var(--primario);
+            margin: 0;
+            font-size: 2.8rem;
+        }
+
+        .modal-cerrar {
+            background: none;
+            border: none;
+            font-size: 2.8rem;
+            cursor: pointer;
+            color: var(--primario);
+            transition: color 0.3s ease;
+        }
+
+        .modal-cerrar:hover {
+            color: var(--negro);
+        }
+
+        .modal-video {
+            width: 100%;
+            aspect-ratio: 16/9;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            margin-bottom: 2rem;
+            background: var(--claro);
+        }
+
+        .modal-video iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .modal-descripcion {
+            color: var(--negro);
+            font-size: 1.6rem;
+            line-height: 1.8;
+        }
+
+        .modal-descripcion h3 {
+            color: var(--primario);
+        }
+
+        .modal-descripcion p {
+            margin: 1rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .galeria-metodos {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .metodo-tarjeta__icono {
+                height: 150px;
+                font-size: 3.5rem;
+            }
+
+            .metodo-tarjeta__detalles {
+                grid-template-columns: 1fr;
+                gap: 0.8rem;
+            }
+
+            .modal-contenido {
+                max-width: 95%;
+                padding: 1.5rem;
+            }
+
+            .modal-header h2 {
+                font-size: 2rem;
+            }
+
+            .modal-cerrar {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+
+        <div class="contenedor">
+            <div class="barra">
+                <a class="logo" href="index.html">
+                    <h1 class="logo__nombre no-margin centrar-texto">Blog <span class="logo__bold">DeCafé</span></h1>
+                </a>
+
+                <nav class="navegacion">
+                    <a class="navegacion__enlace" href="index.html">Inicio</a>
+                    <a class="navegacion__enlace" href="nosotros.html">Nosotros</a>
+                    <a class="navegacion__enlace" href="metodos-cafe.html">Métodos</a>
+                    <a class="navegacion__enlace" href="cursos.html">Cursos</a>
+                    <a class="navegacion__enlace" href="contacto.html">Contacto</a>
+                </nav>
+            </div>
+        </div>
+
+        <div class="header__texto">
+            <h2 class="no-margin">Métodos de Filtrado de Café</h2>
+            <p class="no-margin">Descubre las técnicas más populares y efectivas para preparar café</p>
+        </div>
+    </header>
+
+    <main class="contenedor">
+        <div class="metodos-intro">
+            <h2>Guía Completa de Métodos de Filtrado</h2>
+            <p>Existen múltiples formas de preparar un excelente café. Cada método tiene sus propias características, ventajas y desafíos. A continuación, te presentamos los métodos más populares y utilizados en todo el mundo. Haz clic en "Ver Cómo se Hace" en cualquier método para ver un tutorial con video.</p>
+        </div>
+
+        <div class="galeria-metodos">
+            <!-- Pour Over -->
+            <div class="metodo-tarjeta">
+                <div class="metodo-tarjeta__icono">
+                    <svg viewBox="0 0 100 100" width="80" height="80" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Dripper cone -->
+                        <path d="M25 25 L50 10 L75 25 L70 60 Q70 65 65 65 L35 65 Q30 65 30 60 Z" stroke="white" stroke-width="2" fill="none" stroke-linejoin="round"/>
+                        <!-- Filter lines -->
+                        <path d="M32 35 Q50 28 68 35" stroke="white" stroke-width="1.5" fill="none"/>
+                        <path d="M32 45 Q50 40 68 45" stroke="white" stroke-width="1.5" fill="none"/>
+                        <path d="M32 55 Q50 52 68 55" stroke="white" stroke-width="1.5" fill="none"/>
+                        <!-- Cup -->
+                        <rect x="30" y="70" width="40" height="20" rx="2" stroke="white" stroke-width="2" fill="none"/>
+                        <!-- Handle -->
+                        <path d="M72 75 Q80 75 80 80 Q80 85 72 85" stroke="white" stroke-width="2" fill="none"/>
+                    </svg>
+                </div>
+                <div class="metodo-tarjeta__contenido">
+                    <h3 class="metodo-tarjeta__titulo">Pour Over</h3>
+                    <p class="metodo-tarjeta__descripcion">Método manual clásico donde el agua caliente se vierte lentamente sobre café molido.</p>
+                    <div class="metodo-tarjeta__detalles">
+                        <div class="metodo-detalle">
+                            <span class="metodo-detalle__label">Tiempo:</span>
+                            <span class="metodo-detalle__valor">3-4 minutos</span>
+                        </div>
+                        <div class="metodo-detalle">
+                            <span class="metodo-detalle__label">Dificultad:</span>
+                            <span class="metodo-detalle__valor">Media</span>
+                        </div>
+                    </div>
+                    <div class="metodo-tarjeta__caracteristicas">
+                        <span class="caracteristica-badge">Control manual</span>
+                        <span class="caracteristica-badge">Económico</span>
+                    </div>
+                    <button class="metodo-tarjeta__boton" onclick="abrirModal('pour-over')">Ver Cómo se Hace</button>
+                </div>
+            </div>
+
+            <!-- French Press -->
+            <div class="metodo-tarjeta">
+                <div class="metodo-tarjeta__icono">
+                    <svg viewBox="0 0 100 100" width="80" height="80" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Glass body -->
+                        <path d="M25 30 L22 65 Q22 75 32 75 L68 75 Q78 75 78 65 L75 30 Z" stroke="white" stroke-width="2" fill="none" stroke-linejoin="round"/>
+                        <!-- Handle -->
+                        <path d="M78 45 Q88 45 88 55 Q88 65 78 65" stroke="white" stroke-width="2" fill="none"/>
+                        <!-- Lid -->
+                        <rect x="30" y="22" width="40" height="8" rx="2" stroke="white" stroke-width="2" fill="none"/>
+                        <!-- Plunger rod -->
+                        <line x1="50" y1="30" x2="50" y2="70" stroke="white" stroke-width="2"/>
+                    </svg>
+                </div>
+                <div class="metodo-tarjeta__contenido">
+                    <h3 class="metodo-tarjeta__titulo">French Press</h3>
+                    <p class="metodo-tarjeta__descripcion">Cafetera de inmersión completa que produce un café rico y con cuerpo.</p>
+                    <div class="metodo-tarjeta__detalles">
+                        <div class="metodo-detalle">
+                            <span class="metodo-detalle__label">Tiempo:</span>
+                            <span class="metodo-detalle__valor">4-6 minutos</span>
+                        </div>
+                        <div class="metodo-detalle">
+                            <span class="metodo-detalle__label">Dificultad:</span>
+                            <span class="metodo-detalle__valor">Fácil</span>
+                        </div>
+                    </div>
+                    <div class="metodo-tarjeta__caracteristicas">
+                        <span class="caracteristica-badge">Cuerpo completo</span>
+                        <span class="caracteristica-badge">Tradicional</span>
+                    </div>
+                    <button class="metodo-tarjeta__boton" onclick="abrirModal('french-press')">Ver Cómo se Hace</button>
+                </div>
+            </div>
+
+            <!-- AeroPress -->
+            <div class="metodo-tarjeta">
+                <div class="metodo-tarjeta__icono">
+                    <svg viewBox="0 0 100 100" width="80" height="80" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Cylinder body -->
+                        <path d="M30 35 L28 70 Q28 78 36 78 L64 78 Q72 78 72 70 L70 35 Z" stroke="white" stroke-width="2" fill="none" stroke-linejoin="round"/>
+                        <ellipse cx="50" cy="35" rx="20" ry="6" stroke="white" stroke-width="2" fill="none"/>
+                        <!-- Plunger -->
+                        <rect x="40" y="15" width="20" height="20" stroke="white" stroke-width="2" fill="none"/>
+                        <line x1="50" y1="15" x2="50" y2="30" stroke="white" stroke-width="2"/>
+                        <!-- Filter cap -->
+                        <circle cx="50" cy="78" r="6" stroke="white" stroke-width="2" fill="none"/>
+                    </svg>
+                </div>
+                <div class="metodo-tarjeta__contenido">
+                    <h3 class="metodo-tarjeta__titulo">AeroPress</h3>
+                    <p class="metodo-tarjeta__descripcion">Dispositivo portátil que utiliza presión de aire para extraer el café rápidamente.</p>
+                    <div class="metodo-tarjeta__detalles">
+                        <div class="metodo-detalle">
+                            <span class="metodo-detalle__label">Tiempo:</span>
+                            <span class="metodo-detalle__valor">1-3 minutos</span>
+                        </div>
+                        <div class="metodo-detalle">
+                            <span class="metodo-detalle__label">Dificultad:</span>
+                            <span class="metodo-detalle__valor">Fácil</span>
+                        </div>
+                    </div>
+                    <div class="metodo-tarjeta__caracteristicas">
+                        <span class="caracteristica-badge">Portátil</span>
+                        <span class="caracteristica-badge">Rápido</span>
+                    </div>
+                    <button class="metodo-tarjeta__boton" onclick="abrirModal('aeropress')">Ver Cómo se Hace</button>
+                </div>
+            </div>
+
+            <!-- Moka Pot -->
+            <div class="metodo-tarjeta">
+                <div class="metodo-tarjeta__icono">
+                    <svg viewBox="0 0 100 100" width="80" height="80" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Bottom chamber -->
+                        <path d="M28 55 L25 75 L75 75 L72 55 Z" stroke="white" stroke-width="2" fill="none" stroke-linejoin="round"/>
+                        <!-- Middle chamber -->
+                        <rect x="32" y="38" width="36" height="20" stroke="white" stroke-width="2" fill="none" rx="2"/>
+                        <!-- Top chamber -->
+                        <path d="M38 25 L35 38 L65 38 L62 25 Z" stroke="white" stroke-width="2" fill="none" stroke-linejoin="round"/>
+                        <!-- Top cap -->
+                        <rect x="40" y="18" width="20" height="7" stroke="white" stroke-width="2" fill="none"/>
+                        <!-- Spout -->
+                        <path d="M73 50 Q82 48 85 55 Q82 62 73 60" stroke="white" stroke-width="2" fill="none"/>
+                    </svg>
+                </div>
+                <div class="metodo-tarjeta__contenido">
+                    <h3 class="metodo-tarjeta__titulo">Moka Pot</h3>
+                    <p class="metodo-tarjeta__descripcion">Cafetera italiana que produce un espresso-like mediante presión de vapor.</p>
+                    <div class="metodo-tarjeta__detalles">
+                        <div class="metodo-detalle">
+                            <span class="metodo-detalle__label">Tiempo:</span>
+                            <span class="metodo-detalle__valor">5-10 minutos</span>
+                        </div>
+                        <div class="metodo-detalle">
+                            <span class="metodo-detalle__label">Dificultad:</span>
+                            <span class="metodo-detalle__valor">Media</span>
+                        </div>
+                    </div>
+                    <div class="metodo-tarjeta__caracteristicas">
+                        <span class="caracteristica-badge">Fuerte</span>
+                        <span class="caracteristica-badge">Clásica</span>
+                    </div>
+                    <button class="metodo-tarjeta__boton" onclick="abrirModal('moka-pot')">Ver Cómo se Hace</button>
+                </div>
+            </div>
+
+            <!-- Turkish Coffee -->
+            <div class="metodo-tarjeta">
+                <div class="metodo-tarjeta__icono">
+                    <svg viewBox="0 0 100 100" width="80" height="80" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Cezve pot body -->
+                        <path d="M30 50 Q25 40 30 30 Q35 20 50 18 Q65 20 70 30 Q75 40 70 50 L65 75 L35 75 Z" stroke="white" stroke-width="2" fill="none" stroke-linejoin="round"/>
+                        <!-- Handle -->
+                        <path d="M30 50 Q15 50 12 60 L12 70" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/>
+                        <!-- Spout -->
+                        <path d="M72 50 Q88 48 90 55 Q88 62 72 60" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <div class="metodo-tarjeta__contenido">
+                    <h3 class="metodo-tarjeta__titulo">Café Turco</h3>
+                    <p class="metodo-tarjeta__descripcion">Método tradicional de Oriente Medio con café muy fino y sabor intenso.</p>
+                    <div class="metodo-tarjeta__detalles">
+                        <div class="metodo-detalle">
+                            <span class="metodo-detalle__label">Tiempo:</span>
+                            <span class="metodo-detalle__valor">5-7 minutos</span>
+                        </div>
+                        <div class="metodo-detalle">
+                            <span class="metodo-detalle__label">Dificultad:</span>
+                            <span class="metodo-detalle__valor">Media-Alta</span>
+                        </div>
+                    </div>
+                    <div class="metodo-tarjeta__caracteristicas">
+                        <span class="caracteristica-badge">Histórico</span>
+                        <span class="caracteristica-badge">Ritual</span>
+                    </div>
+                    <button class="metodo-tarjeta__boton" onclick="abrirModal('turkish-coffee')">Ver Cómo se Hace</button>
+                </div>
+            </div>
+
+            <!-- Chemex -->
+            <div class="metodo-tarjeta">
+                <div class="metodo-tarjeta__icono">
+                    <svg viewBox="0 0 100 100" width="80" height="80" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Top chamber -->
+                        <path d="M28 20 L35 35 L50 42 L65 35 L72 20 Z" stroke="white" stroke-width="2" fill="none" stroke-linejoin="round"/>
+                        <!-- Middle section -->
+                        <ellipse cx="50" cy="48" rx="18" ry="8" stroke="white" stroke-width="2" fill="none"/>
+                        <!-- Bottom chamber -->
+                        <path d="M32 48 L28 75 L72 75 L68 48 Z" stroke="white" stroke-width="2" fill="none" stroke-linejoin="round"/>
+                        <!-- Handle -->
+                        <path d="M72 55 Q85 55 85 65 Q85 75 72 75" stroke="white" stroke-width="2" fill="none"/>
+                    </svg>
+                </div>
+                <div class="metodo-tarjeta__contenido">
+                    <h3 class="metodo-tarjeta__titulo">Chemex</h3>
+                    <p class="metodo-tarjeta__descripcion">Dispositivo elegante de vidrio que produce un café limpio y refinado.</p>
+                    <div class="metodo-tarjeta__detalles">
+                        <div class="metodo-detalle">
+                            <span class="metodo-detalle__label">Tiempo:</span>
+                            <span class="metodo-detalle__valor">4-6 minutos</span>
+                        </div>
+                        <div class="metodo-detalle">
+                            <span class="metodo-detalle__label">Dificultad:</span>
+                            <span class="metodo-detalle__valor">Media</span>
+                        </div>
+                    </div>
+                    <div class="metodo-tarjeta__caracteristicas">
+                        <span class="caracteristica-badge">Elegante</span>
+                        <span class="caracteristica-badge">Limpio</span>
+                    </div>
+                    <button class="metodo-tarjeta__boton" onclick="abrirModal('chemex')">Ver Cómo se Hace</button>
+                </div>
+            </div>
+
+            <!-- Syphon -->
+            <div class="metodo-tarjeta">
+                <div class="metodo-tarjeta__icono">
+                    <svg viewBox="0 0 100 100" width="80" height="80" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Top chamber -->
+                        <circle cx="35" cy="25" r="14" stroke="white" stroke-width="2" fill="none"/>
+                        <!-- Top valve -->
+                        <rect x="32" y="11" width="6" height="8" fill="white"/>
+                        <!-- Tube left -->
+                        <path d="M28 35 Q20 50 25 70" stroke="white" stroke-width="2" fill="none"/>
+                        <!-- Tube right -->
+                        <path d="M42 35 Q60 50 65 70" stroke="white" stroke-width="2" fill="none"/>
+                        <!-- Bottom chamber -->
+                        <circle cx="65" cy="80" r="12" stroke="white" stroke-width="2" fill="none"/>
+                    </svg>
+                </div>
+                <div class="metodo-tarjeta__contenido">
+                    <h3 class="metodo-tarjeta__titulo">Syphon</h3>
+                    <p class="metodo-tarjeta__descripcion">Método científico con cámara de vacío que produce café con sabor excepcional.</p>
+                    <div class="metodo-tarjeta__detalles">
+                        <div class="metodo-detalle">
+                            <span class="metodo-detalle__label">Tiempo:</span>
+                            <span class="metodo-detalle__valor">5-10 minutos</span>
+                        </div>
+                        <div class="metodo-detalle">
+                            <span class="metodo-detalle__label">Dificultad:</span>
+                            <span class="metodo-detalle__valor">Alta</span>
+                        </div>
+                    </div>
+                    <div class="metodo-tarjeta__caracteristicas">
+                        <span class="caracteristica-badge">Espectacular</span>
+                        <span class="caracteristica-badge">Complejo</span>
+                    </div>
+                    <button class="metodo-tarjeta__boton" onclick="abrirModal('syphon')">Ver Cómo se Hace</button>
+                </div>
+            </div>
+
+            <!-- Espresso -->
+            <div class="metodo-tarjeta">
+                <div class="metodo-tarjeta__icono">
+                    <svg viewBox="0 0 100 100" width="80" height="80" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Machine body -->
+                        <rect x="20" y="20" width="60" height="50" rx="3" stroke="white" stroke-width="2" fill="none"/>
+                        <!-- Boiler indicator -->
+                        <circle cx="30" cy="30" r="3" fill="white"/>
+                        <!-- Group head -->
+                        <rect x="35" y="68" width="30" height="6" stroke="white" stroke-width="2" fill="none" rx="1"/>
+                        <!-- Spout -->
+                        <path d="M42 74 L35 82 M58 74 L65 82" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                        <!-- Cup support -->
+                        <line x1="25" y1="74" x2="75" y2="74" stroke="white" stroke-width="2"/>
+                    </svg>
+                </div>
+                <div class="metodo-tarjeta__contenido">
+                    <h3 class="metodo-tarjeta__titulo">Espresso</h3>
+                    <p class="metodo-tarjeta__descripcion">Café concentrado extraído con presión alta, base de muchas bebidas.</p>
+                    <div class="metodo-tarjeta__detalles">
+                        <div class="metodo-detalle">
+                            <span class="metodo-detalle__label">Tiempo:</span>
+                            <span class="metodo-detalle__valor">25-30 segundos</span>
+                        </div>
+                        <div class="metodo-detalle">
+                            <span class="metodo-detalle__label">Dificultad:</span>
+                            <span class="metodo-detalle__valor">Alta</span>
+                        </div>
+                    </div>
+                    <div class="metodo-tarjeta__caracteristicas">
+                        <span class="caracteristica-badge">Intenso</span>
+                        <span class="caracteristica-badge">Profesional</span>
+                    </div>
+                    <button class="metodo-tarjeta__boton" onclick="abrirModal('espresso')">Ver Cómo se Hace</button>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- MODALES -->
+    <!-- Pour Over Modal -->
+    <div id="modal-pour-over" class="modal" onclick="cerrarModal(event, 'pour-over')">
+        <div class="modal-contenido" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <h2>Pour Over - Tutorial</h2>
+                <button class="modal-cerrar" onclick="cerrarModal(null, 'pour-over')">×</button>
+            </div>
+            <div class="modal-video">
+                <iframe src="https://www.youtube.com/embed/rJJqBXWqH0s" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+            <div class="modal-descripcion">
+                <h3>Pasos para hacer Pour Over:</h3>
+                <p><strong>1. Prepara el equipo:</strong> Necesitarás un dripper, filtro de papel, taza y agua caliente (90-96°C).</p>
+                <p><strong>2. Coloca el filtro:</strong> Coloca el filtro en el dripper y enjuágalo con agua caliente.</p>
+                <p><strong>3. Agrega café:</strong> Muele el café (molienda media) y colócalo en el filtro (proporción 1:16 café/agua).</p>
+                <p><strong>4. Vierte agua:</strong> Vierte un poco de agua para "despierta" el café (30 segundos), luego vierte el resto en círculos.</p>
+                <p><strong>5. Espera:</strong> El proceso total debe tomar 3-4 minutos.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- French Press Modal -->
+    <div id="modal-french-press" class="modal" onclick="cerrarModal(event, 'french-press')">
+        <div class="modal-contenido" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <h2>French Press - Tutorial</h2>
+                <button class="modal-cerrar" onclick="cerrarModal(null, 'french-press')">×</button>
+            </div>
+            <div class="modal-video">
+                <iframe src="https://www.youtube.com/embed/Ty9VNVLX_WM" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+            <div class="modal-descripcion">
+                <h3>Pasos para hacer French Press:</h3>
+                <p><strong>1. Calienta el agua:</strong> A 90-96°C. Precalienta la cafetera con agua caliente.</p>
+                <p><strong>2. Prepara el café:</strong> Usa café molido grueso (proporción 1:15 café/agua).</p>
+                <p><strong>3. Vierte el café:</strong> Coloca el café en la cafetera y vierte el agua caliente.</p>
+                <p><strong>4. Espera:</strong> Deja reposar durante 4-6 minutos.</p>
+                <p><strong>5. Presiona:</strong> Baja lentamente el émbolo para filtrar el café.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- AeroPress Modal -->
+    <div id="modal-aeropress" class="modal" onclick="cerrarModal(event, 'aeropress')">
+        <div class="modal-contenido" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <h2>AeroPress - Tutorial</h2>
+                <button class="modal-cerrar" onclick="cerrarModal(null, 'aeropress')">×</button>
+            </div>
+            <div class="modal-video">
+                <iframe src="https://www.youtube.com/embed/Ty9VNVLX_WM" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+            <div class="modal-descripcion">
+                <h3>Pasos para hacer AeroPress:</h3>
+                <p><strong>1. Prepara el AeroPress:</strong> Coloca el filtro en la cámara inferior.</p>
+                <p><strong>2. Agrega café:</strong> Usa café molido fino (proporción 1:16 café/agua).</p>
+                <p><strong>3. Vierte agua caliente:</strong> A 80-90°C, llena la cámara.</p>
+                <p><strong>4. Mezcla y espera:</strong> Mezcla bien y espera 1 minuto.</p>
+                <p><strong>5. Presiona:</strong> Presiona el émbolo lentamente durante 20-30 segundos.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Moka Pot Modal -->
+    <div id="modal-moka-pot" class="modal" onclick="cerrarModal(event, 'moka-pot')">
+        <div class="modal-contenido" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <h2>Moka Pot - Tutorial</h2>
+                <button class="modal-cerrar" onclick="cerrarModal(null, 'moka-pot')">×</button>
+            </div>
+            <div class="modal-video">
+                <iframe src="https://www.youtube.com/embed/KxNZEY5yW0w" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+            <div class="modal-descripcion">
+                <h3>Pasos para hacer Moka Pot:</h3>
+                <p><strong>1. Llena el depósito:</strong> Con agua caliente hasta la válvula de seguridad.</p>
+                <p><strong>2. Agrega café:</strong> Llena la canasta con café molido fino, sin presionar.</p>
+                <p><strong>3. Ensambla:</strong> Atornilla la cámara superior a la inferior.</p>
+                <p><strong>4. Cocina:</strong> Coloca a fuego medio-bajo hasta que escuches un sonido de borboteo.</p>
+                <p><strong>5. Retira del fuego:</strong> Cuando salga todo el café (3-5 minutos), retira inmediatamente.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Turkish Coffee Modal -->
+    <div id="modal-turkish-coffee" class="modal" onclick="cerrarModal(event, 'turkish-coffee')">
+        <div class="modal-contenido" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <h2>Café Turco - Tutorial</h2>
+                <button class="modal-cerrar" onclick="cerrarModal(null, 'turkish-coffee')">×</button>
+            </div>
+            <div class="modal-video">
+                <iframe src="https://www.youtube.com/embed/gwfZ7h5Ycxo" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+            <div class="modal-descripcion">
+                <h3>Pasos para hacer Café Turco:</h3>
+                <p><strong>1. Prepara el cezve:</strong> Un pequeño recipiente de cobre o bronce.</p>
+                <p><strong>2. Agrega agua:</strong> Coloca agua fría (1 taza por persona).</p>
+                <p><strong>3. Muele el café:</strong> Muy fino, como polvo (proporción 1:2 café/agua).</p>
+                <p><strong>4. Calienta:</strong> Agrega el café al agua fría y calienta a fuego medio-bajo.</p>
+                <p><strong>5. Sirve:</strong> Cuando suba la espuma, vierte en tazas. Repite el proceso 2-3 veces.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chemex Modal -->
+    <div id="modal-chemex" class="modal" onclick="cerrarModal(event, 'chemex')">
+        <div class="modal-contenido" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <h2>Chemex - Tutorial</h2>
+                <button class="modal-cerrar" onclick="cerrarModal(null, 'chemex')">×</button>
+            </div>
+            <div class="modal-video">
+                <iframe src="https://www.youtube.com/embed/sPbCRn3k3ks" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+            <div class="modal-descripcion">
+                <h3>Pasos para hacer Chemex:</h3>
+                <p><strong>1. Prepara el Chemex:</strong> Coloca un filtro doblado (lado más grueso hacia afuera) en el cuello.</p>
+                <p><strong>2. Enjuaga el filtro:</strong> Con agua caliente para mejorar la extracción y calentar el Chemex.</p>
+                <p><strong>3. Agrega café:</strong> Molido medio-grueso (proporción 1:17 café/agua).</p>
+                <p><strong>4. Vierte el agua:</strong> A 90-96°C, comienza con un poco para "despertar" el café.</p>
+                <p><strong>5. Completa la extracción:</strong> Vierte lentamente durante 4-6 minutos en total.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Syphon Modal -->
+    <div id="modal-syphon" class="modal" onclick="cerrarModal(event, 'syphon')">
+        <div class="modal-contenido" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <h2>Syphon - Tutorial</h2>
+                <button class="modal-cerrar" onclick="cerrarModal(null, 'syphon')">×</button>
+            </div>
+            <div class="modal-video">
+                <iframe src="https://www.youtube.com/embed/xg1RaJpjLGE" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+            <div class="modal-descripcion">
+                <h3>Pasos para hacer Syphon:</h3>
+                <p><strong>1. Arma el equipo:</strong> Coloca el tubo de filtración en la cámara inferior, luego posiciona la cámara superior.</p>
+                <p><strong>2. Agrega agua:</strong> En la cámara inferior (90-96°C).</p>
+                <p><strong>3. Calienta:</strong> Con la fuente de calor hasta que el agua suba a la cámara superior.</p>
+                <p><strong>4. Agrega café:</strong> Café molido medio. Mezcla bien durante 40 segundos.</p>
+                <p><strong>5. Retira el calor:</strong> El café bajará a la cámara inferior. El ciclo total dura 5-10 minutos.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Espresso Modal -->
+    <div id="modal-espresso" class="modal" onclick="cerrarModal(event, 'espresso')">
+        <div class="modal-contenido" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <h2>Espresso - Tutorial</h2>
+                <button class="modal-cerrar" onclick="cerrarModal(null, 'espresso')">×</button>
+            </div>
+            <div class="modal-video">
+                <iframe src="https://www.youtube.com/embed/lR8D5iUfKBo" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+            <div class="modal-descripcion">
+                <h3>Pasos para hacer Espresso:</h3>
+                <p><strong>1. Prepara la máquina:</strong> Calienta la máquina de espresso.</p>
+                <p><strong>2. Muele el café:</strong> Muy fino, 18-20g (proporción depende de la canasta).</p>
+                <p><strong>3. Compacta el café:</strong> Presiona el café uniformemente en el portafiltro.</p>
+                <p><strong>4. Extrae:</strong> Inserta en la máquina y presiona para iniciar. La extracción toma 25-30 segundos.</p>
+                <p><strong>5. Sirve:</strong> Vierte en tazas precalentadas. Un espresso perfecto tiene crema dorada en la parte superior.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="contenedor">
+            <div class="barra">
+                <a class="logo" href="index.html">
+                    <h1 class="logo__nombre no-margin centrar-texto">Blog <span class="logo__bold">DeCafé</span></h1>
+                </a>
+
+                <nav class="navegacion">
+                    <a class="navegacion__enlace" href="index.html">Inicio</a>
+                    <a class="navegacion__enlace" href="nosotros.html">Nosotros</a>
+                    <a class="navegacion__enlace" href="metodos-cafe.html">Métodos</a>
+                    <a class="navegacion__enlace" href="cursos.html">Cursos</a>
+                    <a class="navegacion__enlace" href="contacto.html">Contacto</a>
+                </nav>
+            </div>
+            <div class="footer__info" style="text-align: center; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #555; font-size: 1.4rem;">
+                <p style="margin: 0.5rem 0;">© 2026 Blog de Café. Todos los derechos reservados.</p>
+                <p style="margin: 1rem 0;">
+                    <a href="" style="color: var(--secundario); margin: 0 1rem;">Privacidad</a> | 
+                    <a href="" style="color: var(--secundario); margin: 0 1rem;">Términos</a> | 
+                    <a href="contacto.html" style="color: var(--secundario); margin: 0 1rem;">Contacto</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- widget de pruebas LC -->
+    <!-- Incluir el script del widget de WhatsApp -->
+    <script src="https://widget.liveconnect.chat/widget.js" data-canal-key="6b96d1ed59cf8bf6f34fe53282a86255"></script>
+
+    <script>
+        // Funciones para abrir y cerrar modales
+        function abrirModal(nombreModal) {
+            const modal = document.getElementById('modal-' + nombreModal);
+            if (modal) {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function cerrarModal(event, nombreModal) {
+            const modal = document.getElementById('modal-' + nombreModal);
+            if (modal && (event === null || event.target === modal)) {
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        // Cerrar modal al presionar Escape
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                const modalesActivos = document.querySelectorAll('.modal.active');
+                modalesActivos.forEach(modal => {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                });
+            }
+        });
+    </script>
+
+</body>
+</html>
