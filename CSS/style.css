@@ -42,21 +42,7 @@ h1,h2,h3,h4 {
     line-height: 1.2 /*no debe llevar medidas el interlineado como PX o REM*/;
 }
 
-h1{
-    font-size: 4.8rem;
-}
-
-h2 {
-    font-size: 4.3rem;
-}
-
-h3 {
-    font-size: 3.2rem;
-}
-
-h4 {
-    font-size: 2.8rem;
-}
+/* Font sizes defined in style-responsive.css for mobile-first approach */
 
 img{
     max-width: 100%;
@@ -91,7 +77,6 @@ img{
 
 .header {
     background-image: url(../img/banner.jpg);   
-    height: 60rem;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center; /* centra la imagen en responsive*/
@@ -100,26 +85,29 @@ img{
 .header__texto {
     text-align: center;
     color: var(--blanco);
-    margin-top: 5rem;
-}
-
-@media (min-width: 768px) {
-    .header__texto {
-        margin-top: 15rem;
-    }
+    /* Height and margin-top defined in style-responsive.css for mobile-first */
 }
 
 /*Logo */
 
 .barra {
-    padding-top: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Base styles and media queries in style-responsive.css */
 }
 
 @media (min-width: 768px){
     .barra {
-        display: flex;
         justify-content: space-between;
-        align-items: center;
+    }
+}
+
+@media (min-width: 768px){
+    .footer .barra {
+        flex-direction: column;
+        justify-content: center;
+        gap: 2rem;
     }
 }
 
@@ -135,14 +123,10 @@ img{
     font-weight: 700;
 }
 
-
 /*Navegacion*/
-
-@media (min-width: 768px) {
-    .navegacion {
-        display: flex;
-        gap: 3rem;
-    }
+.navegacion {
+    display: flex;
+    /* Direction and gaps defined in style-responsive.css */
 }
 
 .navegacion__enlace{
@@ -155,6 +139,8 @@ img{
 .navegacion__enlace:hover {
     color: var(--secundario);
 }
+
+
 
 /*Blog Principal*/
 
